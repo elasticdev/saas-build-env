@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 MAINTAINER Gary Leong <gwleong@gmail.com>
 
 RUN apt-get update -y && \
-    apt-get install autoconf make htop vim sysstat git wget python-dev \
+    apt-get install autoconf make htop vim sysstat git zip wget python-dev \
                     rng-tools haveged python-setuptools curl python-yaml \
                     python-pip software-properties-common -y || rm -rf /var/lib/apt/lists/*
 
