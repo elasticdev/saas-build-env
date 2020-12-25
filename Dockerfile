@@ -36,6 +36,7 @@ RUN cd /tmp && wget https://releases.hashicorp.com/terraform/0.12.12/terraform_0
 RUN pip install ansible
 RUN pip install awslogs
 
+RUN npm install -g serverless@1.82.0
 RUN terraform --version
 RUN ansible --version
 
