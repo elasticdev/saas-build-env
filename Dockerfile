@@ -1,16 +1,16 @@
 FROM ubuntu:18.04
 MAINTAINER Gary Leong <gwleong@gmail.com>
 
+RUN apt-get update -y && \
+    apt-get install autoconf make htop vim sysstat git wget python-dev \
+                    rng-tools haveged python-setuptools curl python-yaml \
+                    python-pip software-properties-common -y || rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update -y && apt-get install nodejs npm -y
+
 ENV LANG en_US.UTF-8 
 ENV LANGUAGE en_US
 ENV LC_ALL en_US.UTF-8
-
-RUN apt-get update -y && \
-    apt-get install autoconf make htop vim sysstat git python-dev \
-                    rng-tools haveged python-setuptools python-yaml \
-                    python-gridfs python-pip software-properties-common -y || rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update -y && apt-get install nodejs npm -y
 
 #RUN pip install psutil 
 #RUN pip install argparse==1.2.1
@@ -26,6 +26,9 @@ RUN cd /tmp && wget https://releases.hashicorp.com/terraform/0.12.12/terraform_0
 RUN pip install ansible
 RUN pip install awslogs
 
+RUN terraform --version
+RUN ansible --version
+
 #root@serverless-deploy:/opt/dev/engine-aws-lambda# serverless --version
 #Framework Core: 1.82.0 (standalone)
 #Plugin: 3.8.3
@@ -33,7 +36,6 @@ RUN pip install awslogs
 #Components: 2.34.9
 
 # Check that it's installed
-RUN terraform --version
 
 
 
