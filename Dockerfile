@@ -39,8 +39,9 @@ RUN pip install ansible
 RUN pip install awslogs
 
 RUN npm install -g serverless@1.82.0
-RUN terraform --version
-RUN ansible --version
+RUN echo "" && terraform --version
+RUN echo "" && ansible --version
+RUN echo "" && serverless --version
 
 #root@serverless-deploy:/opt/dev/engine-aws-lambda# serverless --version
 #Framework Core: 1.82.0 (standalone)
